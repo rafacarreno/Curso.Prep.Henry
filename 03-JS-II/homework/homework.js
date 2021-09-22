@@ -4,7 +4,7 @@ function obtenerMayor(x, y) {
   // "x" e "y" son números enteros (int).
   // Devuelve el número más grande
   // Si son iguales, devuelve cualquiera de los dos
-  // Tu código:
+  // Tu código: aca Fara!
 }
 
 function mayoriaDeEdad(edad) {
@@ -66,7 +66,7 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 3, devuelve "fizz"
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
-  // De lo contrario, devuelve el numero asd
+  // De lo contrario, devuelve el numero
 }
 
 function operadoresLogicos(num1, num2, num3) {
