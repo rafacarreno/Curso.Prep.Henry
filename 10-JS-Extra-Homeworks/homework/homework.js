@@ -1,6 +1,13 @@
 // No cambies los nombres de las funciones.
 
 function deObjetoAmatriz(objeto){
+  var matriz=[];
+  
+  for(let clave in objeto) {
+    matriz.push([clave,(objeto)[clave]]);
+  }
+  return matriz;
+  
   // Escribe una función que convierta un objeto en una matriz, donde cada elemento representa 
   // un par clave-valor en forma de matriz.
   //Ejemplo: 
@@ -14,14 +21,38 @@ function deObjetoAmatriz(objeto){
 
 
 function numberOfCharacters(string) {
+  var objeto = {};
+
+  for (let i=0; i<string.length; i++){
+    if(Object.keys(objeto).includes(string[i])){
+      objeto[string[i]]= objeto[string[i]] + 1; 
+    }
+    else {
+      objeto[string[i]]= 1;
+    }
+  }
+  return objeto;
+}
   //La función recibe un string. Recorre el srting y devuelve el caracter con el número de veces que aparece 
   //en formato par clave-valor.
-  //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
+  //Ej: Recibe ---> "dasjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
-}
+
 
 
 function capToFront(s) {
+  var palabra = [];
+  for (let i=0; i<s.length; i++){
+    if  (s[i] === s[i].toUpperCase()) {
+      palabra.push(s[i]);
+    }
+  }
+  for (let j=0; j<s.length; j++){
+    if  (s[j] === s[j].toLowerCase()) {
+      palabra.push(s[j]);
+  }
+  }
+return palabra.join('');
   //Realiza una función que reciba como parámetro un string y mueva todas las letras mayúsculas
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
@@ -34,15 +65,28 @@ function asAmirror(str) {
   //Escribe una función que tome la frase recibida y la devuelva de modo tal que se pueda leer de izquierda a derecha 
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
-  //Escribe tu código aquí
-} 
+  //Escribe tu código aquí.
+  var aux=[];
 
+  aux=str.split(' ');
+  for(let i=0; i<aux.length; i++){
+    aux[i]=aux[i].split('').reverse().join('');
+  }
+  return (aux.join(' '));
+   
+}
 
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var aux=[];
+  aux=numero.toString().split('');
+  
+  if (aux.reverse().join('') === numero.toString()) {return 'Es capicua';} else {return'No es capicua';}
+  
+  
 }
 
 
@@ -50,6 +94,17 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+
+cadena=cadena.split('');
+for( let i=0; i<cadena.length; i++){
+  if(cadena[i] === 'a') {cadena[i] = ''} else 
+    if (cadena[i] === 'b') {cadena[i] = ''} else 
+      {if (cadena[i] === 'c') {cadena[i] = ''}}
+}
+//seria cadena=cadena.replace('a', ' ');
+
+cadena=cadena.join('');
+return cadena;
 }
 
 
@@ -57,6 +112,13 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  
+function compareStrings(a, b) {
+  
+  return(a.length-b.length);
+  }
+   
+  return arr.sort(compareStrings);
 }
 
 
@@ -66,6 +128,18 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+
+  arr3=[];
+
+for (let i=0; i<arreglo1.length; i++){
+  for(let j=0; j<arreglo2.length; j++){
+    if(arreglo1[i] === arreglo2[j]) {
+      arr3.push(arreglo1[i]);
+      }
+    }
+  }
+
+return (arr3);
 }
 
 
@@ -83,4 +157,3 @@ module.exports = {
    sortArray,
    buscoInterseccion,
 };
-
